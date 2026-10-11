@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 const API_BASE = 'http://localhost:4000';
+const LANDING_URL = 'http://localhost:3000';
 
 interface UserSession {
   role: string;
@@ -290,14 +291,19 @@ export default function AmbulanceAdminDashboard() {
       <main className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center items-center gap-2 mb-2">
-            <span className="w-4 h-4 rounded-full bg-blue-600 inline-block animate-pulse"></span>
-            <span className="text-xs font-bold tracking-widest text-blue-700 uppercase">Emergency Command Grid</span>
+            <span className="w-4 h-4 rounded-full bg-kaze inline-block animate-pulse"></span>
+            <span className="text-xs font-bold tracking-widest text-kaze uppercase">KAZE Command Grid</span>
           </div>
           <h2 className="text-center text-3xl font-extrabold text-slate-900 tracking-tight">
             Ambulance Admin Console
           </h2>
           <p className="mt-2 text-center text-sm text-slate-600">
             Central Dispatch, Intelligent Nearest Hospital Matching & Fleet Control
+          </p>
+          <p className="mt-3 text-center">
+            <a href={LANDING_URL} className="text-xs font-semibold text-kaze hover:text-kaze-dark uppercase tracking-widest">
+              ← Back to KAZE
+            </a>
           </p>
         </div>
 
@@ -320,7 +326,7 @@ export default function AmbulanceAdminDashboard() {
                   value={loginId}
                   onChange={e => setLoginId(e.target.value)}
                   placeholder="admin"
-                  className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                  className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze font-mono"
                 />
               </div>
 
@@ -334,7 +340,7 @@ export default function AmbulanceAdminDashboard() {
                   value={loginPass}
                   onChange={e => setLoginPass(e.target.value)}
                   placeholder="admin"
-                  className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                  className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze font-mono"
                 />
               </div>
 
@@ -601,7 +607,7 @@ export default function AmbulanceAdminDashboard() {
                         <select
                           value={selectedAmbulanceId}
                           onChange={e => setSelectedAmbulanceId(e.target.value)}
-                          className="px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-kaze"
                         >
                           {ambulances.map(a => (
                             <option key={a.id} value={a.id}>

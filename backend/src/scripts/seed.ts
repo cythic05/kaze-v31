@@ -142,11 +142,9 @@ export async function seedData() {
   console.log('[SEED] Pune Emergency Network seeded successfully with 6 Hospitals, 144+ Units, and 6 Ambulances!');
 }
 
-if (import.meta.url === `file:///${process.argv[1].replace(/\\/g, '/')}`) {
-  seedData()
-    .then(() => process.exit(0))
-    .catch((err) => {
-      console.error('[SEED_ERROR]', err);
-      process.exit(1);
-    });
-}
+seedData()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error('[SEED_ERROR]', err);
+    process.exit(1);
+  });

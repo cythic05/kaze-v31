@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const API_BASE = 'http://localhost:4000';
+const LANDING_URL = 'http://localhost:3000';
 
 interface HospitalData {
   id: string;
@@ -365,14 +366,19 @@ export default function HospitalDashboard() {
       <main className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center items-center gap-2 mb-2">
-            <span className="w-4 h-4 rounded-full bg-emerald-600 inline-block animate-pulse"></span>
-            <span className="text-xs font-bold tracking-widest text-emerald-700 uppercase">HLTH-02 Core Gateway</span>
+            <span className="w-4 h-4 rounded-full bg-kaze inline-block animate-pulse"></span>
+            <span className="text-xs font-bold tracking-widest text-kaze uppercase">KAZE Hospital Gateway</span>
           </div>
           <h2 className="text-center text-3xl font-extrabold text-slate-900 tracking-tight">
             Hospital Emergency Terminal
           </h2>
           <p className="mt-2 text-center text-sm text-slate-600">
             Real-time ER Resource Allocation & Patient Handover System
+          </p>
+          <p className="mt-3 text-center">
+            <a href={LANDING_URL} className="text-xs font-semibold text-kaze hover:text-kaze-dark uppercase tracking-widest">
+              ← Back to KAZE
+            </a>
           </p>
         </div>
 
@@ -385,7 +391,7 @@ export default function HospitalDashboard() {
                 onClick={() => setAuthMode('LOGIN')}
                 className={`flex-1 py-2 text-sm font-semibold text-center border-b-2 ${
                   authMode === 'LOGIN'
-                    ? 'border-emerald-600 text-emerald-700'
+                    ? 'border-kaze text-kaze-dark'
                     : 'border-transparent text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -396,7 +402,7 @@ export default function HospitalDashboard() {
                 onClick={() => setAuthMode('REGISTER')}
                 className={`flex-1 py-2 text-sm font-semibold text-center border-b-2 ${
                   authMode === 'REGISTER'
-                    ? 'border-emerald-600 text-emerald-700'
+                    ? 'border-kaze text-kaze-dark'
                     : 'border-transparent text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -428,7 +434,7 @@ export default function HospitalDashboard() {
                     value={loginAdminId}
                     onChange={e => setLoginAdminId(e.target.value)}
                     placeholder="e.g. dy_patil@admin"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze focus:border-kaze"
                   />
                 </div>
 
@@ -442,14 +448,14 @@ export default function HospitalDashboard() {
                     value={loginPassword}
                     onChange={e => setLoginPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze focus:border-kaze"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full mt-2 py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors disabled:opacity-50"
+                  className="w-full mt-2 py-2.5 px-4 rounded-lg bg-kaze hover:bg-kaze-dark text-white font-semibold text-sm shadow-sm transition-colors disabled:opacity-50"
                 >
                   {loading ? 'Authenticating...' : 'Sign In to Hospital Terminal'}
                 </button>
@@ -496,7 +502,7 @@ export default function HospitalDashboard() {
                       }
                     }}
                     placeholder="e.g. Sahyadri Speciality Hospital"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                   />
                 </div>
 
@@ -510,7 +516,7 @@ export default function HospitalDashboard() {
                     value={regAdminId}
                     onChange={e => setRegAdminId(e.target.value)}
                     placeholder="sahyadri@admin"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-kaze"
                   />
                 </div>
 
@@ -524,7 +530,7 @@ export default function HospitalDashboard() {
                     value={regPassword}
                     onChange={e => setRegPassword(e.target.value)}
                     placeholder="Create a secure password"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                   />
                 </div>
 
@@ -539,7 +545,7 @@ export default function HospitalDashboard() {
                       required
                       value={regLat}
                       onChange={e => setRegLat(e.target.value)}
-                      className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                     />
                   </div>
                   <div>
@@ -552,7 +558,7 @@ export default function HospitalDashboard() {
                       required
                       value={regLng}
                       onChange={e => setRegLng(e.target.value)}
-                      className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                     />
                   </div>
                 </div>
@@ -566,7 +572,7 @@ export default function HospitalDashboard() {
                     value={regPhone}
                     onChange={e => setRegPhone(e.target.value)}
                     placeholder="020-XXXXXXXX"
-                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                   />
                 </div>
 
@@ -577,7 +583,7 @@ export default function HospitalDashboard() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full mt-2 py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors disabled:opacity-50"
+                  className="w-full mt-2 py-2.5 px-4 rounded-lg bg-kaze hover:bg-kaze-dark text-white font-semibold text-sm shadow-sm transition-colors disabled:opacity-50"
                 >
                   {loading ? 'Registering...' : 'Register Hospital & Launch'}
                 </button>
@@ -605,9 +611,9 @@ export default function HospitalDashboard() {
           <div className="flex justify-between items-center h-16">
             {/* Left: Branding & Hospital Identity */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-black text-xl shadow-xs">
-                +
-              </div>
+              <a href={LANDING_URL} className="w-10 h-10 rounded-lg bg-kaze flex items-center justify-center text-white font-black text-sm tracking-wide shadow-xs" title="KAZE home">
+                K
+              </a>
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="text-base font-bold text-slate-900 tracking-tight">{hospital.name}</h1>
@@ -676,7 +682,7 @@ export default function HospitalDashboard() {
               onClick={() => setActiveTab('REQUESTS')}
               className={`py-3 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors ${
                 activeTab === 'REQUESTS'
-                  ? 'border-emerald-600 text-emerald-700 font-bold'
+                  ? 'border-kaze text-kaze-dark font-bold'
                   : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
               }`}
             >
@@ -692,7 +698,7 @@ export default function HospitalDashboard() {
               onClick={() => setActiveTab('RESOURCES')}
               className={`py-3 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors ${
                 activeTab === 'RESOURCES'
-                  ? 'border-emerald-600 text-emerald-700 font-bold'
+                  ? 'border-kaze text-kaze-dark font-bold'
                   : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
               }`}
             >
@@ -706,7 +712,7 @@ export default function HospitalDashboard() {
               onClick={() => setActiveTab('HANDOVER')}
               className={`py-3 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors ${
                 activeTab === 'HANDOVER'
-                  ? 'border-emerald-600 text-emerald-700 font-bold'
+                  ? 'border-kaze text-kaze-dark font-bold'
                   : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
               }`}
             >
@@ -848,7 +854,7 @@ export default function HospitalDashboard() {
                         <button
                           type="button"
                           onClick={() => acceptReservation(req.id)}
-                          className="px-5 py-2 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition-colors"
+                          className="px-5 py-2 rounded-lg text-xs font-bold text-white bg-kaze hover:bg-kaze-dark shadow-sm transition-colors"
                         >
                           ✓ Accept & Confirm Bed
                         </button>
@@ -876,7 +882,7 @@ export default function HospitalDashboard() {
               <button
                 type="button"
                 onClick={() => setShowAddResource(true)}
-                className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-xs transition-colors"
+                className="px-4 py-2 rounded-lg bg-kaze hover:bg-kaze-dark text-white font-semibold text-xs shadow-xs transition-colors"
               >
                 + Add New Equipment
               </button>
@@ -1029,7 +1035,7 @@ export default function HospitalDashboard() {
                       <select
                         value={newCategory}
                         onChange={e => setNewCategory(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                       >
                         <option value="ICU_BED">ICU Bed</option>
                         <option value="VENTILATOR">Ventilator</option>
@@ -1048,7 +1054,7 @@ export default function HospitalDashboard() {
                         max="20"
                         value={newCount}
                         onChange={e => setNewCount(parseInt(e.target.value, 10) || 1)}
-                        className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-kaze"
                       />
                     </div>
 
@@ -1058,7 +1064,7 @@ export default function HospitalDashboard() {
                         id="movableCheck"
                         checked={newIsMovable}
                         onChange={e => setNewIsMovable(e.target.checked)}
-                        className="rounded text-emerald-600 focus:ring-emerald-500"
+                        className="rounded text-emerald-600 focus:ring-kaze"
                       />
                       <label htmlFor="movableCheck" className="text-xs text-slate-700">
                         Is movable equipment (e.g. portable ventilator)
@@ -1075,7 +1081,7 @@ export default function HospitalDashboard() {
                       </button>
                       <button
                         type="submit"
-                        className="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white"
+                        className="px-4 py-2 rounded-lg text-xs font-semibold bg-kaze hover:bg-kaze-dark text-white"
                       >
                         Confirm & Provision
                       </button>
@@ -1142,7 +1148,7 @@ export default function HospitalDashboard() {
                       <button
                         type="button"
                         onClick={() => completeHandover(c.id, c.vehicle_number)}
-                        className="px-5 py-2.5 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-colors flex items-center gap-2"
+                        className="px-5 py-2.5 rounded-lg text-xs font-bold bg-kaze hover:bg-kaze-dark text-white shadow-sm transition-colors flex items-center gap-2"
                       >
                         <span>✓ Patient Arrived & Free Ambulance</span>
                       </button>
